@@ -13,7 +13,7 @@ Example usage:
 - name: Login Docker
   uses: 'lagren/docker-gcr-action@master'
   with:
-    SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+    OAUTH2_ACCESS_TOKEN: ${{ secrets.OAUTH2_ACCESS_TOKEN }}
     HOST: 'gcr.io'
 
 ```

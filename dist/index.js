@@ -968,7 +968,7 @@ const exec = __webpack_require__(986)
 
 async function run() {
     try {
-        const serviceAccountKey = core.getInput("SERVICE_ACCOUNT_KEY", {required: true})
+        const oauth2AccessToken = core.getInput("OAUTH2_ACCESS_TOKEN", {required: true})
         const host = core.getInput('HOST', {required: true})
 
         let myOutput = '';
@@ -990,7 +990,7 @@ async function run() {
 
         console.log(`Logging into ${registry}`)
 
-        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, registry], options)
+        await exec.exec('docker', ['login', '-u', 'oauth2accesstoken', '-p', oauth2AccessToken, registry], options)
             .then(() => {console.log(myOutput)})
             .catch(() => {throw {message: myError}})
     } catch (error) {
